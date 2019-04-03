@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/minji7608/bleu-dot-backend/issues"
   },
-  "homepage": "https://github.com/minji7608/bleu-dot-backend#readme"
+  "homepage": "https://github.com/minji7608/bleu-dot-backend#readme",
+  "dependencies": {
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.2.11"
+  }
 }
