@@ -16,8 +16,20 @@ module.exports = (sequelize, DataTypes) => {
         college: {
             type: type.STRING,
             allowNull: false
+        },
+        active: {
+            type: type.TINYINT,
+            allowNull:false
         }
     });
+
+    scopes: {
+        activeUsers: {
+          include: [
+            { model: User, where: { active: true }}
+          ]
+        }
+    }
     
     return AdmissionOfficer
 };

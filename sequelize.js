@@ -14,4 +14,4 @@ sequelize.sync()
 
 });
 
-module.exports AdmissionOfficer;
+module.exports = AdmissionOfficer;
