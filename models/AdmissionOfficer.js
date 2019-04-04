@@ -1,35 +1,35 @@
 module.exports = (sequelize, DataTypes) => {
     const AdmissionOfficer = sequelize.define('AdmissionOfficer', {
         id: {
-            type: type.INTEGER,
+            type: sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         first_name: {
-            type: type.STRING,
+            type: sequelize.STRING,
             allowNull: false
         },
         last_name: {
-            type: type.STRING,
+            type: sequelize.STRING,
             allowNull: false
         },
         college: {
-            type: type.STRING,
+            type: sequelize.STRING,
             allowNull: false
         },
         active: {
-            type: type.TINYINT,
+            type: sequelize.TINYINT,
             allowNull:false
         }
     });
 
-    scopes: {
-        activeUsers: {
-          include: [
-            { model: User, where: { active: true }}
-          ]
-        }
-    }
+    // scopes: {
+    //     activeUsers: {
+    //       include: [
+    //         { model: User, where: { active: true }}
+    //       ]
+    //     }
+    // }
     
     return AdmissionOfficer
 };
