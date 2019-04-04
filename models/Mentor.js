@@ -1,60 +1,85 @@
-/* Mentor.js */
+module.exports = (sequelize, DataTypes) => {
+    const Mentor = sequelize.define('Mentor', {
+        id: {
+            type: type.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        first_name: {
+            type: type.STRING,
+            allowNull: false
+        },
+        last_name: {
+            type: type.STRING,
+            allowNull: false
+        },
+        highschool: {
+            type: type.STRING,
+            allowNull: false
+        },
+        applied_schools: {
+            type: type.ARRAY(type.STRING),
+            allowNull: false
+        },
+        college: {
+            type: type.STRING,
+            allowNull: false
+        },
+        major: {
+            type: type.STRING,
+            allowNull: false
+        },
+        gpa: {
+            type: type.STRING,
+            allowNull: false
+        },
+        SAT: {
+            type: type.INTEGER
+        },
+        ACT: {
+            type: type.INTEGER
+        },
+        gender: {
+            type: type.CHAR(1), //F or M
+            allowNull: false
+        },
+        internships: {
+            type: type.ARRAY(type.STRING)
+        },
+        address: {
+            type: type.STRING,
+            allowNull: false
+        },
+        age: {
+            type: type.INTEGER,
+            allowNull: false
+        },
+        sports: {
+            type: type.ARRAY(type.STRING)
+        },
+        hobbies: {
+            type: type.ARRAY(type.STRING)
+        },
+        interests: {
+            type: type.ARRAY(type.STRING)
+        },
+        resume: {
+            type: type.BLOB // can store file smaller than 64KB
+        },
+        active: {
+            type: type.TINYINT,
+            allowNull:false
+        }
+    });
 
-var mongoose = require('mongoose');
-mongoose.set('debug', true);
-
-// Define a schema
-var Schema = mongoose.Schema;
-
-// Creating a new mentor
-var MentorSchema = new Schema({
-
-    first_name: String,
+    scopes: {
+        activeUsers: {
+          include: [
+            { model: User, where: { active: true }}
+          ]
+        }
+    }
     
-    last_name: String,
+    return Mentor 
+};
 
-    highschool: String,
-
-    applied_schools: [String], // TODO: add school schema type
-
-    college: String, 
-
-    major: String,
-
-    gpa: {
-        type: Number,
-        min: 0,
-        max: 4
-    },
-
-    SAT: {
-        type: Number,
-        min: 0,
-        max: 1800
-    },
-
-    ACT: {
-        type: Number,
-        min: 0,
-        max: 36
-    },
-
-    gender: String,
-
-    internships: [String],
-
-    address: String,
-
-    age: Number,
-
-    sports: [String],
-
-    hobbies: [String],
-
-    interests: [String],
-    
-    /* TODO: add resume (what type?) */
-
-});
-
-module.exports = mongoose.model('Mentor', MentorSchema);
