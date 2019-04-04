@@ -1,5 +1,4 @@
 var validator = require('validator');
-validator.isAlpha
 
 module.exports = (sequelize, DataTypes) => {
     const AdmissionOfficer = sequelize.define('AdmissionOfficer', {
