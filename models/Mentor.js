@@ -10,9 +10,8 @@ var Schema = mongoose.Schema;
 var MentorSchema = new Schema({
 
     first_name: String,
+    
     last_name: String,
-
-    /* TODO: add birth date */
 
     highschool: String,
 
