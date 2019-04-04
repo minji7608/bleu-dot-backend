@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/minji7608/bleu-dot-backend#readme",
   "dependencies": {
-    "mongoose": "^5.4.20"
+    "chai": "^4.2.0",
+    "mongoose": "^5.4.20",
+    "sequelize": "^5.2.12",
+    "sinon": "^7.3.1"
+  },
+  "devDependencies": {
+    "sequelize-test-helpers": "^1.0.10"
   }
 }
