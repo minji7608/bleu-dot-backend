@@ -22,7 +22,7 @@ describe('./../models/Pair.js', () => {
 
   /* check if attributes of model exist */
   context('checking properties of Pair...', () => {
-      ;['id','time', 'voic_calls', 'messages', 'videos', 'active'].forEach(checkPropertyExists(instance))
+      ;['id','time', 'voice_calls', 'messages', 'videos', 'active'].forEach(checkPropertyExists(instance))
   })
 
   /* check if assciations are right */

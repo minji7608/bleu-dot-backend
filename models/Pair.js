@@ -1,21 +1,26 @@
+const Sequelize = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
     const Pair = sequelize.define('Pair', {
         id: {
-            type: type.INTEGER,
+            type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         time: {
-            type: type.ARRAY(type.TIME)
+            type: Sequelize.ARRAY(Sequelize.TIME)
         },
         voice_calls: {
-            type: type.TIME,
+            type: Sequelize.TIME,
         },
         messages: {
-            type: type.TIME, 
+            type: Sequelize.TIME, 
         },
         videos: {
-            type: type.TIME
+            type: Sequelize.TIME
+        },
+        active:{
+            type: Sequelize.BOOLEAN
         }
 
         /* Probably need separate models to store contents.
