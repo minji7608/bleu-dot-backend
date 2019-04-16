@@ -1,36 +1,46 @@
+const Sequelize = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
         id: {
-            type: type.INTEGER,
+            type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         username: {
-            type: type.STRING,
+            type: Sequelize.STRING,
             allowNull: false
         },
         password: {
-            type: type.STRING,
+            type: Sequelize.STRING,
             allowNull: false
         },
         role: {
-            type: type.CHAR(1), // S: student, M: mentor, C: college adm.
+            type: Sequelize.CHAR(1), // S: student, M: mentor, C: college adm.
             allowNull: false
         },
         email: {
-            type: type.VARCHAR(255),
+            type: Sequelize.CHAR(255),
             allowNull: false
         },
         phone: {
-            type: type.VARCHAR(20),
+            type: Sequelize.CHAR(20),
             allowNull: false
         },
         active: {
-            type: type.BOOLEAN,
+            type: Sequelize.BOOLEAN,
             allowNull: false
         }
+        
+        
     });
     
-    return Pair 
+    User.associate = function(models) {
+        models.User.hasOne(models.Student);
+        models.User.hasOne(models.Mentor);
+    };
+
+    
+    return User 
 };
 

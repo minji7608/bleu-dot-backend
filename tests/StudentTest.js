@@ -7,7 +7,7 @@ const {
   checkUniqueIndex
 } = require('sequelize-test-helpers')
 
-/* tests for AdmissionOfficerModel model */
+/* tests for Student model */
 const Student = require('./../models/Student.js')
 const User = require('./../models/User.js')
 
@@ -27,15 +27,21 @@ describe('./../models/Student.js', () => {
   /* check if assciations are right */
   /* TODO: comment out below code once basic test cases work */
 
-  // const UserModel = User(sequelize, dataTypes)
-  // context('associations for Student', () => {
-  //   before(() => {
-  //     Model.associate({ UserModel })
-  //   })
-  //   it('AdmissionOfficer belongsTo User', () => {
-  //     expect(Student.belongsTo).to.have.been.calledWith(User)
-  //   })
-  // })
+  /*
+  context('checking associations for Student...', () => {
+
+    const UserModel = User(sequelize, dataTypes)
+    before(() => {
+      Model.associate({ UserModel })
+    })
+     
+    it('Student belongsTo User', () => {
+      expect(Student.belongsTo).to.have.been.calledWith(User)
+    })
+
+  })
+  */
+   
 })
 
 

@@ -9,7 +9,8 @@ const {
 
 /* tests for AdmissionOfficerModel model */
 const User = require('./../models/User.js')
-const AdmissionOfficer = require('./../models/AdmissionOfficer.js')
+const Student = require('./../models/Student.js')
+
 describe('./../models/User.js', () => {
 
   const Model = User(sequelize, dataTypes)
@@ -20,6 +21,21 @@ describe('./../models/User.js', () => {
   context('checking properties of user...', () => {
     ;['id', 'username', 'password', 'role', 'email', 'phone', 'active'].forEach(checkPropertyExists(instance))
   })
+
+  /*
+  context('checking associations for Student...', () => {
+
+    const StudentModel = Student(sequelize, dataTypes)
+    before(() => {
+      Model.associate({ StudentModel })
+    })
+     
+    it('User hasOne Student', () => {
+      expect(User.hasOne).to.have.been.calledWith(StudentModel)
+    })
+
+  })
+  */
 
 })
 
