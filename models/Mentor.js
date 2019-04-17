@@ -1,61 +1,99 @@
-/* Mentor.js */
+const Sequelize = require('sequelize');
+var User = require('./user')
 
-var mongoose = require('mongoose');
-mongoose.set('debug', true);
 
-// Define a schema
-var Schema = mongoose.Schema;
+module.exports = (sequelize, DataTypes) => {
+    const Mentor = sequelize.define('Mentor', {
+        id: {
+            type: Sequelize.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        first_name: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        last_name: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        highschool: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        applied_schools: {
+            type: Sequelize.ARRAY(Sequelize.STRING),
+            allowNull: false
+        },
+        college: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        major: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        gpa: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        SAT: {
+            type: Sequelize.INTEGER
+        },
+        ACT: {
+            type: Sequelize.INTEGER
+        },
+        gender: {
+            type: Sequelize.STRING(1), //F or M
+            allowNull: false
+        },
+        internships: {
+            type: Sequelize.ARRAY(Sequelize.STRING)
+        },
+        address: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        age: {
+            type: Sequelize.INTEGER,
+            allowNull: false
+        },
+        sports: {
+            type: Sequelize.ARRAY(Sequelize.STRING)
+        },
+        hobbies: {
+            type: Sequelize.ARRAY(Sequelize.STRING)
+        },
+        interests: {
+            type: Sequelize.ARRAY(Sequelize.STRING)
+        },
+        resume: {
+            type: Sequelize.BLOB // can store file smaller than 64KB
+        },
+        active: {
+            type: Sequelize.TINYINT,
+            allowNull:false
+        }, 
+        user_id: {
+            type: Sequelize.BIGINT(11),
+            allowNull: false,
+            references: {
+                model: User,
+                key: 'id'
+            },
+        }
+    });
 
-// Creating a new mentor
-var MentorSchema = new Schema({
-
-    first_name: String,
-    last_name: String,
-
-    /* TODO: add birth date */
-
-    highschool: String,
-
-    applied_schools: [String], // TODO: add school schema type
-
-    college: String, 
-
-    major: String,
-
-    gpa: {
-        type: Number,
-        min: 0,
-        max: 4
-    },
-
-    SAT: {
-        type: Number,
-        min: 0,
-        max: 1800
-    },
-
-    ACT: {
-        type: Number,
-        min: 0,
-        max: 36
-    },
-
-    gender: String,
-
-    internships: [String],
-
-    address: String,
-
-    age: Number,
-
-    sports: [String],
-
-    hobbies: [String],
-
-    interests: [String],
+    /*
+    scopes: {
+        activeUsers: {
+          include: [
+            { model: User, where: { active: true }}
+          ]
+        }
+    }
+    */
     
-    /* TODO: add resume (what type?) */
+    return Mentor 
+};
 
-});
-
-module.exports = mongoose.model('Mentor', MentorSchema);

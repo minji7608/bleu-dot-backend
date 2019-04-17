@@ -1,0 +1,5 @@
+- command: "mocha test.js"
+- make sure you have the packages installed
+- useful links:
+        - https://itnext.io/unit-testing-sequelize-models-made-easy-108f079f1e38
+        - https://www.npmjs.com/package/sequelize-test-helpers
