@@ -1,3 +1,5 @@
+var validator = require('validator');
+
 module.exports = (sequelize, DataTypes) => {
     const AdmissionOfficer = sequelize.define('AdmissionOfficer', {
         id: {
@@ -6,16 +8,28 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         first_name: {
-            type: sequelize.STRING,
-            allowNull: false
+            type: type.STRING,
+            allowNull: false,
+            if(validator.isAlpha(first_name) !== true){
+                let msg = format('first_name.%s(%s) is not a valid name');
+                throw new Error(msg);
+            }        
         },
         last_name: {
-            type: sequelize.STRING,
-            allowNull: false
+            type: type.STRING,
+            allowNull: false,
+            if(validator.isAlpha(last_name) !== true){
+                let msg = format('last_mame.%s(%s) is not a valid name');
+                throw new Error(msg);
+            }
         },
         college: {
-            type: sequelize.STRING,
-            allowNull: false
+            type: type.STRING,
+            allowNull: false,
+            if(validator.isAlpha(college) !== true){
+                let msg = format('Enter valid college name');
+                throw new Error(msg);
+            }
         },
         active: {
             type: sequelize.TINYINT,
