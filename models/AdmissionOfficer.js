@@ -23,13 +23,13 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    // scopes: {
-    //     activeUsers: {
-    //       include: [
-    //         { model: User, where: { active: true }}
-    //       ]
-    //     }
-    // }
+    scopes: {
+        actives: {
+              where: {
+                active: true
+              }
+        }
+    }
     
     return AdmissionOfficer
 };
