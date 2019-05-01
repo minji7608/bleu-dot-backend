@@ -22,7 +22,12 @@ describe('./../models/User.js', () => {
     ;['id', 'username', 'password', 'role', 'email', 'phone', 'active'].forEach(checkPropertyExists(instance))
   })
 
-  /*
+  /* test scopes */
+  instance.active = true;
+  var all = AdmissionOfficer.findAll;
+  console.log(all); // should print out the current instance 
+
+  
   context('checking associations for Student...', () => {
 
     const StudentModel = Student(sequelize, dataTypes)
@@ -35,7 +40,7 @@ describe('./../models/User.js', () => {
     })
 
   })
-  */
+  
 
 })
 

@@ -27,16 +27,16 @@ describe('./../models/Mentor.js', () => {
   /* check if assciations are right */
   /* TODO: comment out below code once basic test cases work */
 
-//   const userModel = User(sequelize, dataTypes)
-//   context('associations for mentor', () => {
-//     before(() => {
-//       Model.associate({ UserModel })
-//     })
-//     it('AdmissionOfficer belongsTo User', () => {
-//       expect(Mentor.belongsTo).to.have.been.calledWith(User)
-//     })
-//   })
-// })
+  const userModel = User(sequelize, dataTypes)
+  context('associations for mentor', () => {
+    before(() => {
+      Model.associate({ UserModel })
+    })
+    it('AdmissionOfficer belongsTo User', () => {
+      expect(Mentor.belongsTo).to.have.been.calledWith(User)
+    })
+  })
+
 
 })
 

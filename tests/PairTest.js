@@ -25,21 +25,25 @@ describe('./../models/Pair.js', () => {
       ;['id','time', 'voice_calls', 'messages', 'videos', 'active'].forEach(checkPropertyExists(instance))
   })
 
-  /* check if assciations are right */
-  /* TODO: comment out below code once basic test cases work */
+  /* test scopes */
+  instance.active = true;
+  var all = AdmissionOfficer.findAll;
+  console.log(all); // should print out the current instance 
 
-  // const StudentModel = Student(sequelize, dataTypes)
-  // const MentorModel = Mentor(sequelize, dataTypes)
-  // context('associations for Pair', () => {
-  //   before(() => {
-  //     Model.associate({ StudentModel })
-  //     Model.associate({ MentorModel })
-  //   })
-  //   it('student and Mentor belongsTo pair', () => {
-  //     expect(Pair.belongsTo).to.have.been.calledWith(Mentor)
-  //     expect(Pair.belongsTo).to.have.been.calledWith(Student)
-  //   })
-  // })
+  /* check if assciations are right */
+
+  const StudentModel = Student(sequelize, dataTypes)
+  const MentorModel = Mentor(sequelize, dataTypes)
+  context('associations for Pair', () => {
+    before(() => {
+      Model.associate({ StudentModel })
+      Model.associate({ MentorModel })
+    })
+    it('student and Mentor belongsTo pair', () => {
+      expect(Pair.belongsTo).to.have.been.calledWith(Mentor)
+      expect(Pair.belongsTo).to.have.been.calledWith(Student)
+    })
+  })
 })
 
 

@@ -27,7 +27,7 @@ describe('./../models/Student.js', () => {
   /* check if assciations are right */
   /* TODO: comment out below code once basic test cases work */
 
-  /*
+  
   context('checking associations for Student...', () => {
 
     const UserModel = User(sequelize, dataTypes)
@@ -40,7 +40,7 @@ describe('./../models/Student.js', () => {
     })
 
   })
-  */
+  
    
 })
 
